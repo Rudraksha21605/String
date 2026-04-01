@@ -1,0 +1,11 @@
+public class ChangeString {
+    public static void main(String[] args){
+        String str="ravindra";
+        if((int)str.charAt(0)>=65 && (int)str.charAt(0)<=90){
+            System.out.println(str.toUpperCase());
+        }
+        else{
+            System.out.println(str.toLowerCase());
+        }
+    }
+}
