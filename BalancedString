@@ -1,0 +1,21 @@
+import java.util.*;
+public class BalancedString {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String t=sc.nextLine();
+        int balance=0;
+        int count=0;
+        for(int i=0;i<t.length();i++){
+            if(t.charAt(i)=='L'){
+            balance++;
+            }
+            else{
+                balance--;
+            }
+            if(balance==0){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
