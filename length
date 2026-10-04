@@ -1,0 +1,33 @@
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        ArrayList<Integer>anss=new ArrayList<>();
+        HashMap<Character,Integer>ans=new HashMap<>();
+        int w=p.length();
+        int matched=0;
+        for(int i=0;i<p.length();i++){
+            ans.put(p.charAt(i),ans.getOrDefault(p.charAt(i),0)+1);
+        }
+        for(int i=0;i<s.length();i++){
+            char rightchar=s.charAt(i);
+            if(ans.containsKey(rightchar)){
+                ans.put(rightchar,ans.get(rightchar)-1);
+                if(ans.get(rightchar)==0){
+                    matched++;
+                }
+            }
+            if(i>=w){
+                char leftchar=s.charAt(i-w);
+                if(ans.containsKey(leftchar)){
+                    if(ans.get(leftchar)==0){
+                        matched--;
+                    }
+                    ans.put(leftchar,ans.get(leftchar)+1);
+                }
+            }
+            if(matched==ans.size()){
+                anss.add(i-w+1);
+            }
+        }
+        return anss;
+    }
+}
